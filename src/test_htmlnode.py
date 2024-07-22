@@ -6,7 +6,7 @@ from htmlnode import (
     ParentNode,
     text_node_to_html_node,
     markdown_to_html_node,
-    extract_title
+    extract_title,
 )
 from textnode import TextNode
 
@@ -184,9 +184,8 @@ This is some javascript code
 
         self.assertEqual(
             html,
-            """<div><p>This is a paragraph with <b >bold</b> text with <i >italics</i> text with <code >code</code> text</p><h3 > This is a h3 heading</h3><p>This is a standard paragraph</p><p>This is a paragraph with <b >bold</b> text</p><p>This is a paragraph with <i >italics</i> text</p><p>This is a paragraph with <code >code</code> text</p><p>This is some image <img  src="https://i.imageur.com/zjjcJKZ.png" alt="image"/> <img  src="https://i.imageur.com/3elNhQu.png" alt="second image"/></p><p>This is some link <a  href="https://boot.dev">boot.dev</a> <a  href="https://youtube.com">youtube</a></p><pre><code > 
-This is some javascript code
-</code></pre><ul><li>Unordered list syntax 1</li></ul><ul><li>Underordered list syntax 2</li></ul><ol><li>Ordered list number</li><li>Ordered list number</li></ol><p>####### This is an invalid heading, which is being treated as a paragraph</p></div>""",
+            """<div><p>This is a paragraph with <b >bold</b> text with <i >italics</i> text with <code >code</code> text</p><h3 > This is a h3 heading</h3><p>This is a standard paragraph</p><p>This is a paragraph with <b >bold</b> text</p><p>This is a paragraph with <i >italics</i> text</p><p>This is a paragraph with <code >code</code> text</p><p>This is some image <img  src="https://i.imageur.com/zjjcJKZ.png" alt="image"/> <img  src="https://i.imageur.com/3elNhQu.png" alt="second image"/></p><p>This is some link <a  href="https://boot.dev">boot.dev</a> <a  href="https://youtube.com">youtube</a></p><pre><code >``` 
+This is some javascript code</code></pre><ul><li>Unordered list syntax 1</li></ul><ul><li>Underordered list syntax 2</li></ul><ol><li>Ordered list number</li><li>Ordered list number</li></ol><p>####### This is an invalid heading, which is being treated as a paragraph</p></div>""",
         )
 
     def test_paragraph(self):
@@ -205,10 +204,6 @@ tag here
 text in a p
 tag here</p></div>""",
         )
-
-    def test_extract_title(self):
-        md = "# This is the truly heading\n\nwith the second block"
-        print(extract_title(md))
 
 
 if __name__ == "__main__":
