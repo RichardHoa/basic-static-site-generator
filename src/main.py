@@ -7,7 +7,6 @@ from htmlnode import markdown_to_html_node, extract_title
 def main():
 
     copy_folder("./static", "./public")
-    generate_page("./content/index.md", "./template.html", "./public/index.html")
     generate_pages_recursive("./content", "./template.html", "./public")
 
 
